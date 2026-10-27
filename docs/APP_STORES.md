@@ -209,10 +209,10 @@ it from the tagged source). The changelog for a version is `changelogs/<versionC
      app), and `READ_HEALTH_DATA_HISTORY` (the first weigh-in read goes back a year instead of
      30 days). Foreground only, no `READ_HEALTH_DATA_IN_BACKGROUND`. Use case: fitness, wellness
      and coaching. The in-app reason screen exists (`ViewPermissionUsageActivity`).
-   - **Foreground services:** `specialUse` for the rest countdown in the notification shade
-     (`RestTimerService`), `location` for the gym reminder's short arrival check
-     (`GymScanService`, use case geofencing). Each needs a description, the user impact and a
-     video.
+   - **Foreground services:** `specialUse` for the rest countdown in the notification shade and,
+     between rests, the running workout with Log set (`RestTimerService`); `location` for the gym
+     reminder's short arrival check (`GymScanService`, use case geofencing). Each needs a
+     description, the user impact and a video.
    - **Background location** (`ACCESS_BACKGROUND_LOCATION`, the gym reminder): a declaration with
      a video of the in-app explainer, the system prompt and the reminder firing. Play allows it
      only for a feature that matters to the app; if it refuses, build with

@@ -122,6 +122,7 @@ imported. When you change one side, change the other in the same pull request:
 | `lib/queue.js` | `api/queue.js` | mirrored cases in `lib/queue.test.js` and `api/test/queue.test.js` |
 
 The last two have no test that compares the code itself, so a change on one side only is not
+change on one side only is not
 caught automatically.
 
 Equipment per gym (#808) needed no new rule on either side, on purpose. Each equipment profile
@@ -130,6 +131,11 @@ carries its gym's `plates`, `dumbbells`, `barDefaults` and `stackWeights` as ord
 out), and the top-level fields of the same names stay the active gym's copy, which every reader and
 every older app keeps using. `frontend/src/lib/gym-inventory.js` keeps the two in step on each
 change; its header says how and why.
+
+The phones have one such pair too: what the workout card's Log set does while the page sleeps
+(the next set, the rest that follows) is `LiveActivityTick.tick` in
+`ios/App/App/WorkoutActivity.swift` and `WorkoutCard.java` on Android, each with its own tests
+(`WorkoutCardTest.java`), nothing comparing the two.
 
 The Coach goes the other way: `frontend/src/lib/coach-local.js` imports `api/coach/core/` directly,
 so the phone apps run the same prompts and validation as the server. That is why the web image
